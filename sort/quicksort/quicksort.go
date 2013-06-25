@@ -15,16 +15,16 @@ func main() {
 		data[i] = rand.Int()
 	}
 	start := time.Now()
-	stdQuicksort(data)
+	sort(data)
 	fmt.Println(time.Since(start))
 }
 
-func stdQuicksort(data []int) {
+func sort(data []int) {
 	if len(data) > 1 {
 		pivot := rand.Intn(len(data)-1) + 1
 		pivot = partition(data, pivot)
-		stdQuicksort(data[:pivot])
-		stdQuicksort(data[pivot+1:])
+		sort(data[:pivot])
+		sort(data[pivot+1:])
 	}
 }
 
