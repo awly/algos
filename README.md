@@ -8,8 +8,9 @@ Several popular algorithms and data structures implemented in Go while studying
 * heapsort
 * quicksort
 * parallel quicksort
-* bst
-* avl bst
+* binary search tree
+* AVL binary search tree
 * hash table
-* knapsack
-* peekfind
+* knapsack problem
+* peekfind problem
+* breadth-first search
