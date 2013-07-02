@@ -1,30 +1,15 @@
-// Quicksort
-// on 1e7 slice
-package main
+package quick
 
 import (
-	"fmt"
 	"math/rand"
-	"time"
 )
 
-func main() {
-	rand.Seed(time.Now().Unix())
-	data := make([]int, 1e7)
-	for i, _ := range data {
-		data[i] = rand.Int()
-	}
-	start := time.Now()
-	sort(data)
-	fmt.Println(time.Since(start))
-}
-
-func sort(data []int) {
+func Sort(data []int) {
 	if len(data) > 1 {
 		pivot := rand.Intn(len(data)-1) + 1
 		pivot = partition(data, pivot)
-		sort(data[:pivot])
-		sort(data[pivot+1:])
+		Sort(data[:pivot])
+		Sort(data[pivot+1:])
 	}
 }
 

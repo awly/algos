@@ -1,30 +1,11 @@
-// Mergesort
-// for 1e6 elements
-package main
+package merge
 
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
-func main() {
-	rand.Seed(time.Now().Unix())
-	data := make([]int, 1e6)
-	for i := 0; i < len(data); i++ {
-		data[i] = rand.Int()
-	}
-	start := time.Now()
-	mergeSort(data)
-	fmt.Println(time.Since(start))
-}
-
-func mergeSort(data []int) {
+func Sort(data []int) {
 	if len(data) < 2 {
 		return
 	}
-	mergeSort(data[:len(data)/2])
-	mergeSort(data[len(data)/2:])
+	Sort(data[:len(data)/2])
+	Sort(data[len(data)/2:])
 	copy(data, merge(data[:len(data)/2], data[len(data)/2:]))
 }
 

@@ -1,25 +1,6 @@
-// Insertion sort
-// for an array of 1e5 elements
-package main
+package insertion
 
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
-func main() {
-	rand.Seed(time.Now().Unix())
-	data := make([]int, 1e5)
-	for i := 0; i < len(data); i++ {
-		data[i] = rand.Int()
-	}
-	start := time.Now()
-	insSort(data)
-	fmt.Println(time.Since(start))
-}
-
-func insSort(data []int) {
+func Sort(data []int) {
 	pos := 0
 	for key := 1; key < len(data); key++ {
 		pos = binPosSearch(data[:key], data[key])

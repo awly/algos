@@ -1,25 +1,8 @@
 // Heapsort
 // measures time to sort 1Mil random elements via max-heap
-package main
+package heap
 
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
-func main() {
-	rand.Seed(time.Now().Unix())
-	data := make([]int, 1e6)
-	for i, _ := range data {
-		data[i] = rand.Int()
-	}
-	start := time.Now()
-	heapSort(data)
-	fmt.Println(time.Since(start))
-}
-
-func heapSort(data []int) {
+func Sort(data []int) {
 	h := heap(data)
 	h.buildMaxHeap()
 	for i := 0; i < len(data); i++ {
